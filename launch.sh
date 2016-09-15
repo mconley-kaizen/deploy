@@ -30,8 +30,9 @@ deploy() {
     " | tr -s ' ')
 
     __cmd=" \
-    git clone https://github.com/mconley-kaizen/deployment_app.git /home/deployment_app && \
-    mv -v /home/deployment_app/* /home/webapp/ && \
+    git clone https://github.com/mconley-kaizen/webapp.git /home/temp && \
+    mv -v /home/temp/* /home/webapp/ && \
+    rm -rf /home/temp && \
     cd /home/webapp && \
     if [[ -e requirements.txt ]]; then pip install -r requirements.txt; fi && \
     python /home/webapp/app.py ${__port} ${__package}" 
