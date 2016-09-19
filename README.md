@@ -14,5 +14,5 @@ deploy <port> <model package name> <model package entrypoint> <docker image name
 ```
 
 ```bash
-deploy 5000 iris_prediction main mydockerap
+deploy 5000 iris_prediction perdict mydockerapp
 ```
