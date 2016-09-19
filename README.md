@@ -10,9 +10,9 @@ source launch.sh
 
 ## Usage
 ```bash
-deploy <port> <model package name> <docker image name>
+deploy <port> <model package name> <model package entrypoint> <docker image name>
 ```
 
 ```bash
-deplpoy 5000 iris_prediction mydockerapp
+deploy 5000 iris_prediction main mydockerap
 ```
