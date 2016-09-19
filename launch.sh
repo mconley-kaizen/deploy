@@ -3,7 +3,7 @@
 
 deploy() {
     __help_text="
-    \rUsage: deploy PORT PACKAGE METHOD IMAGE
+    \rUsage: deploy PORT PACKAGE ENTRYPOINT IMAGE
     \r       deploy --help
     \r
     \r    Deploy model as webservice
@@ -17,7 +17,7 @@ deploy() {
     fi
     __port=$1
     __package=$2
-    __method=$3
+    __entrypoint=$3
     __image=$4
     __name=$__package
     __terminal_mode="-d"
@@ -36,7 +36,7 @@ deploy() {
     rm -rf /home/temp && \
     cd /home/webapp && \
     if [[ -e requirements.txt ]]; then pip install -r requirements.txt; fi && \
-    python /home/webapp/app.py ${__port} ${__package} ${__method}" 
+    python /home/webapp/app.py ${__port} ${__package} ${__entrypoint}" 
 
     for i in $(docker ps -aqf name=${__name} ); do
        echo -n "${__name} stop......" && docker stop $i
